@@ -1,43 +1,55 @@
 package com.juancrud.petagram.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.juancrud.petagram.Datos;
-import com.juancrud.petagram.MascotaAdapter;
+import com.juancrud.petagram.PagerAdapter;
 import com.juancrud.petagram.R;
+import com.juancrud.petagram.fragments.PerfilFragment;
+import com.juancrud.petagram.fragments.ListaFragment;
+
+import java.util.ArrayList;
 
 public class ListaActivity extends AppCompatActivity {
 
-    private RecyclerView rvMascotas;
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
 
-        rvMascotas = (RecyclerView)findViewById(R.id.rvMascotas);
-
-        initRecyclerView();
-        initAdapter();
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        tabLayout = (TabLayout)findViewById(R.id.tabLayout);
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
+        setUpViewPager();
     }
 
-    private void initRecyclerView() {
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        rvMascotas.setLayoutManager(llm);
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new ListaFragment());
+        fragments.add(new PerfilFragment());
+        return fragments;
     }
 
-    private void initAdapter() {
-        MascotaAdapter adapter = new MascotaAdapter(Datos.Mascotas);
-        rvMascotas.setAdapter(adapter);
+    private void setUpViewPager(){
+        viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager(), agregarFragments()));
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.list_48);
+        tabLayout.getTabAt(1).setIcon(R.drawable.grid_48);
     }
 
+    /* Menu */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_opciones, menu);
@@ -46,13 +58,21 @@ public class ListaActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()){
             case R.id.mStar5:
-                Intent intent = new Intent(this, FavoritosActivity.class);
+                intent = new Intent(this, FavoritosActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.mContacto:
+                intent = new Intent(this, ContactActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.mAcercaDe:
+                intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
