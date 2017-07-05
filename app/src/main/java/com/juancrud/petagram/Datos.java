@@ -1,9 +1,8 @@
-package com.juancrud.evaluacion2;
+package com.juancrud.petagram;
 
-import com.juancrud.evaluacion2.pojo.Mascota;
+import com.juancrud.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Datos {
 

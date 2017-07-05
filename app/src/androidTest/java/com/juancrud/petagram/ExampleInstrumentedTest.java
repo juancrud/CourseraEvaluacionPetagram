@@ -1,4 +1,4 @@
-package com.juancrud.evaluacion2;
+package com.juancrud.petagram;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

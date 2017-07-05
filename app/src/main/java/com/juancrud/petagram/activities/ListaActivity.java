@@ -1,4 +1,4 @@
-package com.juancrud.evaluacion2.activities;
+package com.juancrud.petagram.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,14 +7,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.juancrud.evaluacion2.Datos;
-import com.juancrud.evaluacion2.MascotaAdapter;
-import com.juancrud.evaluacion2.R;
-import com.juancrud.evaluacion2.pojo.Mascota;
-
-import java.util.ArrayList;
+import com.juancrud.petagram.Datos;
+import com.juancrud.petagram.MascotaAdapter;
+import com.juancrud.petagram.R;
 
 public class ListaActivity extends AppCompatActivity {
 

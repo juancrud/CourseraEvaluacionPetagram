@@ -1,4 +1,4 @@
-package com.juancrud.evaluacion2.pojo;
+package com.juancrud.petagram.pojo;
 
 public class Mascota {
 

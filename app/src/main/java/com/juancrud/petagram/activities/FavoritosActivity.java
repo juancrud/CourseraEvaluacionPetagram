@@ -1,13 +1,13 @@
-package com.juancrud.evaluacion2.activities;
+package com.juancrud.petagram.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.juancrud.evaluacion2.Datos;
-import com.juancrud.evaluacion2.MascotaAdapter;
-import com.juancrud.evaluacion2.R;
+import com.juancrud.petagram.Datos;
+import com.juancrud.petagram.MascotaAdapter;
+import com.juancrud.petagram.R;
 
 public class FavoritosActivity extends AppCompatActivity {
 

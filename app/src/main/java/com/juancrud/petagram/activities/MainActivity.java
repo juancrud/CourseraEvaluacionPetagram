@@ -1,4 +1,4 @@
-package com.juancrud.evaluacion2.activities;
+package com.juancrud.petagram.activities;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.juancrud.evaluacion2.Datos;
-import com.juancrud.evaluacion2.R;
+import com.juancrud.petagram.Datos;
+import com.juancrud.petagram.R;
 
 public class MainActivity extends AppCompatActivity {
 

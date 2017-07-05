@@ -1,4 +1,4 @@
-package com.juancrud.evaluacion2;
+package com.juancrud.petagram;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.juancrud.evaluacion2.pojo.Mascota;
+import com.juancrud.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
 

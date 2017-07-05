@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/margin_s"
     android:layout_marginRight="@dimen/margin_s"
-    tools:context="com.juancrud.evaluacion2.activities.ListaActivity">
+    tools:context="com.juancrud.petagram.activities.ListaActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvMascotas"
