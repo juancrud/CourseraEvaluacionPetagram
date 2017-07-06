@@ -11,31 +11,40 @@ import android.view.ViewGroup;
 import com.juancrud.petagram.Datos;
 import com.juancrud.petagram.MascotaAdapter;
 import com.juancrud.petagram.R;
+import com.juancrud.petagram.pojo.Mascota;
+import com.juancrud.petagram.presenter.IListaFragmentPresenter;
+import com.juancrud.petagram.presenter.ListaFragmentPresenter;
 
-public class ListaFragment extends Fragment {
+import java.util.ArrayList;
+
+public class ListaFragment extends Fragment implements IListaFragmentView {
 
     private RecyclerView rvMascotas;
+    private IListaFragmentPresenter presenter;
+    //private ArrayList<Mascota> mascotas;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista, container, false);
-
         rvMascotas = (RecyclerView)view.findViewById(R.id.rvMascotas);
-        initRecyclerView();
-        initAdapter();
-
+        presenter = new ListaFragmentPresenter(this, getActivity());
         return view;
     }
 
-    private void initRecyclerView() {
+    @Override
+    public void setLayoutManager() {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         rvMascotas.setLayoutManager(llm);
     }
 
-    private void initAdapter() {
-        MascotaAdapter adapter = new MascotaAdapter(Datos.Mascotas);
-        rvMascotas.setAdapter(adapter);
+    @Override
+    public MascotaAdapter createAdapter(ArrayList<Mascota> mascotas) {
+        return new MascotaAdapter(mascotas);
     }
 
+    @Override
+    public void initAdapter(MascotaAdapter adapter) {
+        rvMascotas.setAdapter(adapter);
+    }
 }
