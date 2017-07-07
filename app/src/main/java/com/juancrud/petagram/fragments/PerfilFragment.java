@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.juancrud.petagram.Datos;
-import com.juancrud.petagram.FotosAdapter;
+import com.juancrud.petagram.adapter.FotosAdapter;
 import com.juancrud.petagram.R;
 
 public class PerfilFragment extends Fragment {

@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.juancrud.petagram.Datos;
-import com.juancrud.petagram.MascotaAdapter;
+import com.juancrud.petagram.adapter.MascotaAdapter;
 import com.juancrud.petagram.R;
 
 public class FavoritosActivity extends AppCompatActivity {

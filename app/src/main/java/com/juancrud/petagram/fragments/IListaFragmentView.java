@@ -1,6 +1,6 @@
 package com.juancrud.petagram.fragments;
 
-import com.juancrud.petagram.MascotaAdapter;
+import com.juancrud.petagram.adapter.MascotaAdapter;
 import com.juancrud.petagram.pojo.Mascota;
 
 import java.util.ArrayList;

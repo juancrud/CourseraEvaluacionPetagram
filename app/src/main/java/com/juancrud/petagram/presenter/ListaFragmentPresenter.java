@@ -2,7 +2,7 @@ package com.juancrud.petagram.presenter;
 
 import android.content.Context;
 
-import com.juancrud.petagram.MascotaAdapter;
+import com.juancrud.petagram.adapter.MascotaAdapter;
 import com.juancrud.petagram.db.DatabaseManager;
 import com.juancrud.petagram.fragments.IListaFragmentView;
 import com.juancrud.petagram.pojo.Mascota;

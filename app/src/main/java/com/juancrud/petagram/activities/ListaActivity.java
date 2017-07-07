@@ -10,7 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.juancrud.petagram.PagerAdapter;
+import com.juancrud.petagram.adapter.PagerAdapter;
 import com.juancrud.petagram.R;
 import com.juancrud.petagram.fragments.PerfilFragment;
 import com.juancrud.petagram.fragments.ListaFragment;

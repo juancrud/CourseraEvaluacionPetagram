@@ -8,8 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.juancrud.petagram.Datos;
-import com.juancrud.petagram.MascotaAdapter;
+import com.juancrud.petagram.adapter.MascotaAdapter;
 import com.juancrud.petagram.R;
 import com.juancrud.petagram.pojo.Mascota;
 import com.juancrud.petagram.presenter.IListaFragmentPresenter;
@@ -21,7 +20,6 @@ public class ListaFragment extends Fragment implements IListaFragmentView {
 
     private RecyclerView rvMascotas;
     private IListaFragmentPresenter presenter;
-    //private ArrayList<Mascota> mascotas;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

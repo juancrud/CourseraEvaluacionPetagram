@@ -1,4 +1,4 @@
-package com.juancrud.petagram;
+package com.juancrud.petagram.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

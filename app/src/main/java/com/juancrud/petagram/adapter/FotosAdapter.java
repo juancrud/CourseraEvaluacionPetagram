@@ -1,4 +1,4 @@
-package com.juancrud.petagram;
+package com.juancrud.petagram.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.juancrud.petagram.R;
 import com.juancrud.petagram.pojo.Foto;
 
 import java.util.ArrayList;

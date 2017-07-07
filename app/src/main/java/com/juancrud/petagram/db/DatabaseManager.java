@@ -19,6 +19,4 @@ public class DatabaseManager {
         return db.getAll(Constants.TABLE_MASCOTA);
     }
 
-
-
 }
