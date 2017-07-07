@@ -13,11 +13,11 @@ public class Datos {
 
     public static void initDatos(){
         Top5Mascotas = new ArrayList<>();
-        Top5Mascotas.add(new Mascota("Beto", R.drawable.beto, 10));
-        Top5Mascotas.add(new Mascota("Ximun", R.drawable.ximun, 9));
-        Top5Mascotas.add(new Mascota("Silvestre", R.drawable.silvestre, 9));
-        Top5Mascotas.add(new Mascota("Doggy", R.drawable.doggy, 8));
-        Top5Mascotas.add(new Mascota("Chanchito", R.drawable.chanchito, 7));
+        Top5Mascotas.add(new Mascota("Beto", R.drawable.beto));
+        Top5Mascotas.add(new Mascota("Ximun", R.drawable.ximun));
+        Top5Mascotas.add(new Mascota("Silvestre", R.drawable.silvestre));
+        Top5Mascotas.add(new Mascota("Doggy", R.drawable.doggy));
+        Top5Mascotas.add(new Mascota("Chanchito", R.drawable.chanchito));
 
         Fotos = new ArrayList<>();
         Fotos.add(new Foto(R.drawable.beto, 3));

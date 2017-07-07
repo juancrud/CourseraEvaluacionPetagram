@@ -39,8 +39,8 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
             @Override
             public void onClick(View v) {
                 dbManager.insertLike(mascota);
-                int rating = dbManager.getLikes(mascota);
-                holder.tvRating.setText(""+rating);
+                mascota.setRating(dbManager.getLikes(mascota));
+                holder.tvRating.setText(""+mascota.getRating());
             }
         });
     }

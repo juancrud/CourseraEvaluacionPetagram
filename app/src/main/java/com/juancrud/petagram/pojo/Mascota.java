@@ -9,10 +9,9 @@ public class Mascota {
 
     public Mascota(){}
 
-    public Mascota(String nombre, int imagen, int rating){
+    public Mascota(String nombre, int imagen){
         setNombre(nombre);
         setImagen(imagen);
-        setRating(rating);
     }
 
     public int getId() {

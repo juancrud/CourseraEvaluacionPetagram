@@ -11,16 +11,16 @@ public class SeedData {
 
     static {
         Mascotas = new ArrayList<>();
-        Mascotas.add(new Mascota("Ximun", R.drawable.ximun, 9));
-        Mascotas.add(new Mascota("Beto", R.drawable.beto, 10));
-        Mascotas.add(new Mascota("Chanchito", R.drawable.chanchito, 7));
-        Mascotas.add(new Mascota("Silvestre", R.drawable.silvestre, 9));
-        Mascotas.add(new Mascota("Ronny", R.drawable.ronny, 6));
-        Mascotas.add(new Mascota("Catty", R.drawable.catty, 7));
-        Mascotas.add(new Mascota("Birdy", R.drawable.birdy, 1));
-        Mascotas.add(new Mascota("Fishy", R.drawable.fishy, 4));
-        Mascotas.add(new Mascota("Doggy", R.drawable.doggy, 8));
-        Mascotas.add(new Mascota("Test", R.drawable.test, 3));
+        Mascotas.add(new Mascota("Ximun", R.drawable.ximun));
+        Mascotas.add(new Mascota("Beto", R.drawable.beto));
+        Mascotas.add(new Mascota("Chanchito", R.drawable.chanchito));
+        Mascotas.add(new Mascota("Silvestre", R.drawable.silvestre));
+        Mascotas.add(new Mascota("Ronny", R.drawable.ronny));
+        Mascotas.add(new Mascota("Catty", R.drawable.catty));
+        Mascotas.add(new Mascota("Birdy", R.drawable.birdy));
+        Mascotas.add(new Mascota("Fishy", R.drawable.fishy));
+        Mascotas.add(new Mascota("Doggy", R.drawable.doggy));
+        Mascotas.add(new Mascota("Test", R.drawable.test));
     }
 
 }
