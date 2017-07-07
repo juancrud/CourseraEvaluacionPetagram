@@ -13,12 +13,20 @@ import android.widget.TextView;
 import com.juancrud.petagram.Datos;
 import com.juancrud.petagram.adapter.FotosAdapter;
 import com.juancrud.petagram.R;
+import com.juancrud.petagram.pojo.Foto;
+import com.juancrud.petagram.presenter.IListaFragmentPresenter;
+import com.juancrud.petagram.presenter.IPerfilFragmentPresenter;
+import com.juancrud.petagram.presenter.ListaFragmentPresenter;
+import com.juancrud.petagram.presenter.PerfilFragmentPresenter;
 
-public class PerfilFragment extends Fragment {
+import java.util.ArrayList;
+
+public class PerfilFragment extends Fragment implements IPerfilFragmentView {
 
     private ImageView ivFoto;
     private TextView tvNombre;
     private RecyclerView rvFotos;
+    private IPerfilFragmentPresenter presenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,21 +35,24 @@ public class PerfilFragment extends Fragment {
         ivFoto = (ImageView)view.findViewById(R.id.ivFoto);
         tvNombre = (TextView)view.findViewById(R.id.tvNombre);
         rvFotos = (RecyclerView)view.findViewById(R.id.rvFotos);
-
-        initRecyclerView();
-        initAdapter();
+        presenter = new PerfilFragmentPresenter(this, getActivity());
 
         return view;
     }
 
-    private void initRecyclerView() {
+    @Override
+    public void setLayoutManager() {
         GridLayoutManager glm = new GridLayoutManager(getActivity(), 3);
         rvFotos.setLayoutManager(glm);
     }
 
-    private void initAdapter() {
-        FotosAdapter adapter = new FotosAdapter(Datos.Fotos);
-        rvFotos.setAdapter(adapter);
+    @Override
+    public FotosAdapter createAdapter(ArrayList<Foto> fotos) {
+        return new FotosAdapter(Datos.Fotos);
     }
 
+    @Override
+    public void initAdapter(FotosAdapter adapter) {
+        rvFotos.setAdapter(adapter);
+    }
 }
