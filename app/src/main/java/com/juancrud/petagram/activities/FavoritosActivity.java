@@ -9,16 +9,15 @@ import com.juancrud.petagram.adapter.MascotaAdapter;
 import com.juancrud.petagram.R;
 import com.juancrud.petagram.pojo.Mascota;
 import com.juancrud.petagram.presenter.FavoritosActivityPresenter;
-import com.juancrud.petagram.presenter.IListaFragmentPresenter;
-import com.juancrud.petagram.presenter.ListaFragmentPresenter;
-import com.juancrud.petagram.view.IListaFragmentView;
+import com.juancrud.petagram.presenter.IListaMascotasPresenter;
+import com.juancrud.petagram.view.IListaMascotasView;
 
 import java.util.ArrayList;
 
-public class FavoritosActivity extends AppCompatActivity implements IListaFragmentView {
+public class FavoritosActivity extends AppCompatActivity implements IListaMascotasView {
 
     private RecyclerView rvFavoritos;
-    private IListaFragmentPresenter presenter;
+    private IListaMascotasPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

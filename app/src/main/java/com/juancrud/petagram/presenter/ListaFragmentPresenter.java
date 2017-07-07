@@ -4,19 +4,19 @@ import android.content.Context;
 
 import com.juancrud.petagram.adapter.MascotaAdapter;
 import com.juancrud.petagram.db.DatabaseManager;
-import com.juancrud.petagram.view.IListaFragmentView;
+import com.juancrud.petagram.view.IListaMascotasView;
 import com.juancrud.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
 
-public class ListaFragmentPresenter implements IListaFragmentPresenter {
+public class ListaFragmentPresenter implements IListaMascotasPresenter {
 
     private Context context;
-    private IListaFragmentView iListaFragmentView;
+    private IListaMascotasView iListaMascotasView;
     private ArrayList<Mascota> mascotas;
 
-    public ListaFragmentPresenter(IListaFragmentView iListaFragmentView, Context context) {
-        this.iListaFragmentView = iListaFragmentView;
+    public ListaFragmentPresenter(IListaMascotasView iListaMascotasView, Context context) {
+        this.iListaMascotasView = iListaMascotasView;
         this.context = context;
 
         getMascotas();
@@ -31,8 +31,8 @@ public class ListaFragmentPresenter implements IListaFragmentPresenter {
 
     @Override
     public void showMascotas() {
-        MascotaAdapter adapter = iListaFragmentView.createAdapter(mascotas);
-        iListaFragmentView.initAdapter(adapter);
-        iListaFragmentView.setLayoutManager();
+        MascotaAdapter adapter = iListaMascotasView.createAdapter(mascotas);
+        iListaMascotasView.initAdapter(adapter);
+        iListaMascotasView.setLayoutManager();
     }
 }

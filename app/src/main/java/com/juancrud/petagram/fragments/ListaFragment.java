@@ -11,16 +11,16 @@ import android.view.ViewGroup;
 import com.juancrud.petagram.adapter.MascotaAdapter;
 import com.juancrud.petagram.R;
 import com.juancrud.petagram.pojo.Mascota;
-import com.juancrud.petagram.presenter.IListaFragmentPresenter;
+import com.juancrud.petagram.presenter.IListaMascotasPresenter;
 import com.juancrud.petagram.presenter.ListaFragmentPresenter;
-import com.juancrud.petagram.view.IListaFragmentView;
+import com.juancrud.petagram.view.IListaMascotasView;
 
 import java.util.ArrayList;
 
-public class ListaFragment extends Fragment implements IListaFragmentView {
+public class ListaFragment extends Fragment implements IListaMascotasView {
 
     private RecyclerView rvMascotas;
-    private IListaFragmentPresenter presenter;
+    private IListaMascotasPresenter presenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

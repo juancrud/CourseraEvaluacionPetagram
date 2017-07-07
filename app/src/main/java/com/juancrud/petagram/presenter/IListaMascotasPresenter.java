@@ -1,6 +1,6 @@
 package com.juancrud.petagram.presenter;
 
-public interface IListaFragmentPresenter {
+public interface IListaMascotasPresenter {
     void getMascotas();
     void showMascotas();
 }
