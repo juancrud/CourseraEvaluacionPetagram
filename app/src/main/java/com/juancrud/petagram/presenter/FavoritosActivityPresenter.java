@@ -4,18 +4,18 @@ import android.content.Context;
 
 import com.juancrud.petagram.adapter.MascotaAdapter;
 import com.juancrud.petagram.db.DatabaseManager;
-import com.juancrud.petagram.view.IListaFragmentView;
 import com.juancrud.petagram.pojo.Mascota;
+import com.juancrud.petagram.view.IListaFragmentView;
 
 import java.util.ArrayList;
 
-public class ListaFragmentPresenter implements IListaFragmentPresenter {
+public class FavoritosActivityPresenter implements IListaFragmentPresenter {
 
     private Context context;
     private IListaFragmentView iListaFragmentView;
     private ArrayList<Mascota> mascotas;
 
-    public ListaFragmentPresenter(IListaFragmentView iListaFragmentView, Context context) {
+    public FavoritosActivityPresenter(IListaFragmentView iListaFragmentView, Context context) {
         this.iListaFragmentView = iListaFragmentView;
         this.context = context;
 
@@ -26,7 +26,7 @@ public class ListaFragmentPresenter implements IListaFragmentPresenter {
     @Override
     public void getMascotas() {
         DatabaseManager dbManager = new DatabaseManager(context);
-        mascotas = dbManager.getMascotas();
+        mascotas = dbManager.getUltimos5Likes();
     }
 
     @Override

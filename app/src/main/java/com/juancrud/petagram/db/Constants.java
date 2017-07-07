@@ -16,4 +16,12 @@ public class Constants {
     public static final String FIELD_MASCOTA_LIKES_MASCOTA_ID = "mascota_id";
     public static final String FIELD_MASCOTA_LIKES_FECHA = "fecha";
 
+
+    public static final String QUERY_ULTIMAS_5_MASCOTAS =
+            "SELECT " + TABLE_MASCOTA + ".*" +
+            " FROM " + TABLE_MASCOTA_LIKES +
+            " INNER JOIN " + TABLE_MASCOTA +
+            " ON " + TABLE_MASCOTA_LIKES + "." + FIELD_MASCOTA_LIKES_MASCOTA_ID + " = " + TABLE_MASCOTA + "." + FIELD_MASCOTA_ID +
+            " ORDER BY " + TABLE_MASCOTA_LIKES + "." + FIELD_MASCOTA_LIKES_FECHA + " DESC LIMIT 5";
+
 }

@@ -5,13 +5,20 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.juancrud.petagram.Datos;
 import com.juancrud.petagram.adapter.MascotaAdapter;
 import com.juancrud.petagram.R;
+import com.juancrud.petagram.pojo.Mascota;
+import com.juancrud.petagram.presenter.FavoritosActivityPresenter;
+import com.juancrud.petagram.presenter.IListaFragmentPresenter;
+import com.juancrud.petagram.presenter.ListaFragmentPresenter;
+import com.juancrud.petagram.view.IListaFragmentView;
 
-public class FavoritosActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class FavoritosActivity extends AppCompatActivity implements IListaFragmentView {
 
     private RecyclerView rvFavoritos;
+    private IListaFragmentPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,19 +26,23 @@ public class FavoritosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favoritos);
 
         rvFavoritos = (RecyclerView)findViewById(R.id.rvFavoritos);
-
-        initRecyclerView();
-        initAdapter();
+        presenter = new FavoritosActivityPresenter(this, this);
     }
 
-    private void initRecyclerView() {
+    @Override
+    public void setLayoutManager() {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         rvFavoritos.setLayoutManager(llm);
     }
 
-    private void initAdapter() {
-        MascotaAdapter adapter = new MascotaAdapter(Datos.Top5Mascotas, this);
+    @Override
+    public MascotaAdapter createAdapter(ArrayList<Mascota> mascotas) {
+        return new MascotaAdapter(mascotas, this);
+    }
+
+    @Override
+    public void initAdapter(MascotaAdapter adapter) {
         rvFavoritos.setAdapter(adapter);
     }
 }

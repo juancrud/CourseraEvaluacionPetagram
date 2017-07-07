@@ -36,6 +36,16 @@ public class DatabaseExecuter {
         return values;
     }
 
+    public <T> ArrayList<T> getUltimosLikes(SQLiteDatabase db, String qry, IDatasetReader<T> reader){
+        Cursor dataset = db.rawQuery(qry, null);
+
+        ArrayList<T> values = new ArrayList<>();
+        while(dataset.moveToNext()) {
+            values.add(reader.read(dataset, db));
+        }
+        return values;
+    }
+
     public int getCount(SQLiteDatabase db, String tableName, List<Pair<String, String>> filter) {
         String qry = "SELECT COUNT(*) FROM " + tableName;
         if(filter != null){

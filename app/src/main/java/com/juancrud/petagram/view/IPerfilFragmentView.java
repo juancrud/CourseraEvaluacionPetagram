@@ -1,4 +1,4 @@
-package com.juancrud.petagram.fragments;
+package com.juancrud.petagram.view;
 
 import com.juancrud.petagram.adapter.FotosAdapter;
 import com.juancrud.petagram.pojo.Foto;

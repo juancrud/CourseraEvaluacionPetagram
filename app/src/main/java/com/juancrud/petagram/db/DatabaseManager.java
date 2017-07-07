@@ -29,6 +29,13 @@ public class DatabaseManager {
         return mascotas;
     }
 
+    public ArrayList<Mascota> getUltimos5Likes() {
+        SQLiteDatabase dbConnection = dbExecuter.getConnection();
+        ArrayList<Mascota> mascotas = dbExecuter.getUltimosLikes(dbConnection, Constants.QUERY_ULTIMAS_5_MASCOTAS, mascotaHelper);
+        dbConnection.close();
+        return mascotas;
+    }
+
     public void insertLike(Mascota mascota) {
         SQLiteDatabase dbConnection = dbExecuter.getConnection();
         ContentValues values = mascotaLikeHelper.parseValues(mascota.getId());
@@ -46,14 +53,4 @@ public class DatabaseManager {
         dbConnection.close();
         return likes;
     }
-
-    public void insertMascotas(ArrayList<Mascota> mascotas) {
-        SQLiteDatabase dbConnection = dbExecuter.getConnection();
-        for(Mascota mascota : mascotas) {
-            ContentValues values = mascotaHelper.parseValues(mascota);
-            dbExecuter.insert(dbConnection, Constants.TABLE_MASCOTA, values);
-        }
-        dbConnection.close();
-    }
-
 }

@@ -13,6 +13,7 @@ import com.juancrud.petagram.R;
 import com.juancrud.petagram.pojo.Mascota;
 import com.juancrud.petagram.presenter.IListaFragmentPresenter;
 import com.juancrud.petagram.presenter.ListaFragmentPresenter;
+import com.juancrud.petagram.view.IListaFragmentView;
 
 import java.util.ArrayList;
 

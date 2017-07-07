@@ -14,10 +14,9 @@ import com.juancrud.petagram.Datos;
 import com.juancrud.petagram.adapter.FotosAdapter;
 import com.juancrud.petagram.R;
 import com.juancrud.petagram.pojo.Foto;
-import com.juancrud.petagram.presenter.IListaFragmentPresenter;
 import com.juancrud.petagram.presenter.IPerfilFragmentPresenter;
-import com.juancrud.petagram.presenter.ListaFragmentPresenter;
 import com.juancrud.petagram.presenter.PerfilFragmentPresenter;
+import com.juancrud.petagram.view.IPerfilFragmentView;
 
 import java.util.ArrayList;
 

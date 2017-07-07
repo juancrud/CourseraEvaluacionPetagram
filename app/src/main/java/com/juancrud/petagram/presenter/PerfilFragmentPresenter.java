@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.juancrud.petagram.Datos;
 import com.juancrud.petagram.adapter.FotosAdapter;
-import com.juancrud.petagram.fragments.IPerfilFragmentView;
+import com.juancrud.petagram.view.IPerfilFragmentView;
 import com.juancrud.petagram.pojo.Foto;
 
 import java.util.ArrayList;
