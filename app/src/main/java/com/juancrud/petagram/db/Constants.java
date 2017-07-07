@@ -11,7 +11,6 @@ public class Constants {
     public static final String FIELD_MASCOTA_ID = "id";
     public static final String FIELD_MASCOTA_NAME = "nombre";
     public static final String FIELD_MASCOTA_IMAGE = "imagen";
-    public static final String FIELD_MASCOTA_RATING = "rating";
 
     public static final String FIELD_MASCOTA_LIKES_ID = "id";
     public static final String FIELD_MASCOTA_LIKES_MASCOTA_ID = "mascota_id";

@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.juancrud.petagram.Datos;
 import com.juancrud.petagram.R;
+import com.juancrud.petagram.db.DatabaseExecuter;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -14,11 +14,8 @@ import java.util.List;
 
 public class Database extends SQLiteOpenHelper {
 
-    private Context context;
-
     public Database(Context context) {
         super(context, Constants.DATABASE_NAME, null, Constants.DATABASE_VERSION);
-        this.context = context;
     }
 
     @Override
@@ -39,6 +36,13 @@ public class Database extends SQLiteOpenHelper {
 
         db.execSQL(qryMascota);
         db.execSQL(qryMascotaLikes);
+
+        //SeedData
+        MascotaDbHelper mascotaHelper = new MascotaDbHelper();
+        for(Mascota mascota : SeedData.Mascotas) {
+            ContentValues values = mascotaHelper.parseValues(mascota);
+            db.insert(Constants.TABLE_MASCOTA, null, values);
+        }
     }
 
     @Override
@@ -46,55 +50,6 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXIST " + Constants.TABLE_MASCOTA_LIKES);
         db.execSQL("DROP TABLE IF EXIST " + Constants.TABLE_MASCOTA);
         onCreate(db);
-    }
-
-    public void insert(String tableName, ContentValues contentValues) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.insert(tableName, null, contentValues);
-        db.close();
-    }
-
-    public ArrayList<Mascota> getAll(String tableName) {
-        String qry = "SELECT * FROM " + tableName;
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor dataset = db.rawQuery(qry, null);
-        ArrayList<Mascota> values = readMascotas(dataset);
-        db.close();
-        return values;
-    }
-
-    public int getCount(String tableName, List<Pair<String, String>> filter) {
-        String qry = "SELECT COUNT(*) FROM " + tableName;
-        if(filter != null){
-            for(int i = 0; i <= filter.size(); i++){
-                Pair<String, String> pair = filter.get(i);
-                qry += i == 0 ? " WHERE " : " AND ";
-                qry += pair.first + " = " + pair.second;
-            }
-        }
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor dataset = db.rawQuery(qry, null);
-
-        int count = 0;
-        if (dataset.moveToNext()){
-            count = dataset.getInt(0);
-        }
-
-        db.close();
-        return count;
-    }
-
-    private ArrayList<Mascota> readMascotas(Cursor dataset) {
-        ArrayList<Mascota> values = new ArrayList<>();
-        while(dataset.moveToNext()) {
-            Mascota mascota = new Mascota();
-            mascota.setId(dataset.getInt(0));
-            mascota.setNombre(dataset.getString(1));
-            mascota.setImagen(dataset.getInt(2));
-            values.add(mascota);
-        }
-        return values;
     }
 
 }
