@@ -38,7 +38,7 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(qryMascotaLikes);
 
         //SeedData
-        MascotaDbHelper mascotaHelper = new MascotaDbHelper();
+        MascotaDbHelper mascotaHelper = new MascotaDbHelper(null);
         for(Mascota mascota : SeedData.Mascotas) {
             ContentValues values = mascotaHelper.parseValues(mascota);
             db.insert(Constants.TABLE_MASCOTA, null, values);

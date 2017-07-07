@@ -1,5 +1,7 @@
 package com.juancrud.petagram.adapter;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.juancrud.petagram.R;
+import com.juancrud.petagram.db.DatabaseManager;
+import com.juancrud.petagram.db.MascotaLikeDbHelper;
 import com.juancrud.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -17,9 +21,11 @@ import java.util.ArrayList;
 public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaViewHolder> {
 
     private ArrayList<Mascota> mascotas;
+    private DatabaseManager dbManager;
 
-    public MascotaAdapter(ArrayList<Mascota> mascotas){
+    public MascotaAdapter(ArrayList<Mascota> mascotas, Context context){
         this.mascotas = mascotas;
+        dbManager = new DatabaseManager(context);
     }
 
     @Override
@@ -28,11 +34,13 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
         return new MascotaViewHolder(view);
     }
 
-    private void initListeners(MascotaViewHolder holder, final Mascota mascota){
+    private void initListeners(final MascotaViewHolder holder, final Mascota mascota){
         holder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Rating " + mascota.getNombre(), Toast.LENGTH_SHORT).show();
+                dbManager.insertLike(mascota);
+                int rating = dbManager.getLikes(mascota);
+                holder.tvRating.setText(""+rating);
             }
         });
     }

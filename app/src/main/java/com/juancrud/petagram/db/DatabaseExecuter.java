@@ -31,7 +31,7 @@ public class DatabaseExecuter {
 
         ArrayList<T> values = new ArrayList<>();
         while(dataset.moveToNext()) {
-            values.add(reader.read(dataset));
+            values.add(reader.read(dataset, db));
         }
         return values;
     }
@@ -39,7 +39,7 @@ public class DatabaseExecuter {
     public int getCount(SQLiteDatabase db, String tableName, List<Pair<String, String>> filter) {
         String qry = "SELECT COUNT(*) FROM " + tableName;
         if(filter != null){
-            for(int i = 0; i <= filter.size(); i++){
+            for(int i = 0; i < filter.size(); i++){
                 Pair<String, String> pair = filter.get(i);
                 qry += i == 0 ? " WHERE " : " AND ";
                 qry += pair.first + " = " + pair.second;

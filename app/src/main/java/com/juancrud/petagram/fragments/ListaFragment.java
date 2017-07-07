@@ -38,7 +38,7 @@ public class ListaFragment extends Fragment implements IListaFragmentView {
 
     @Override
     public MascotaAdapter createAdapter(ArrayList<Mascota> mascotas) {
-        return new MascotaAdapter(mascotas);
+        return new MascotaAdapter(mascotas, getActivity());
     }
 
     @Override

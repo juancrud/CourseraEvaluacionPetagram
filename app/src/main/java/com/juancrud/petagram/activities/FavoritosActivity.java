@@ -31,7 +31,7 @@ public class FavoritosActivity extends AppCompatActivity {
     }
 
     private void initAdapter() {
-        MascotaAdapter adapter = new MascotaAdapter(Datos.Top5Mascotas);
+        MascotaAdapter adapter = new MascotaAdapter(Datos.Top5Mascotas, this);
         rvFavoritos.setAdapter(adapter);
     }
 }
