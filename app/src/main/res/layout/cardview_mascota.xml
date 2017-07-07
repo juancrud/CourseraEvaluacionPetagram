@@ -18,6 +18,10 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:src="@drawable/beto"
+            android:paddingLeft="@dimen/margin_xl"
+            android:paddingRight="@dimen/margin_xl"
+            android:paddingTop="@dimen/margin_m"
+            android:paddingBottom="@dimen/margin_m"
             android:layout_marginBottom="@dimen/margin_xs"/>
 
         <RelativeLayout
