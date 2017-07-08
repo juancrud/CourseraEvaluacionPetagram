@@ -11,21 +11,20 @@ import java.util.List;
 
 public class DatabaseExecuter {
 
-    private Database db;
+    private Database database;
 
     public DatabaseExecuter(Context context) {
-        db = new Database(context);
+        database = new Database(context);
     }
 
-    public SQLiteDatabase getConnection(){
-        return db.getWritableDatabase();
-    }
-
-    public void insert(SQLiteDatabase db, String tableName, ContentValues contentValues) {
+    public void insert(String tableName, ContentValues contentValues) {
+        SQLiteDatabase db = database.getWritableDatabase();
         db.insert(tableName, null, contentValues);
+        db.close();
     }
 
-    public <T> ArrayList<T> getAll(SQLiteDatabase db, String tableName, IDatasetReader<T> reader) {
+    public <T> ArrayList<T> getAll(String tableName, IDatasetReader<T> reader) {
+        SQLiteDatabase db = database.getWritableDatabase();
         String qry = "SELECT * FROM " + tableName;
         Cursor dataset = db.rawQuery(qry, null);
 
@@ -33,20 +32,25 @@ public class DatabaseExecuter {
         while(dataset.moveToNext()) {
             values.add(reader.read(dataset, db));
         }
+
+        db.close();
         return values;
     }
 
-    public <T> ArrayList<T> getUltimosLikes(SQLiteDatabase db, String qry, IDatasetReader<T> reader){
+    public <T> ArrayList<T> getUltimosLikes(String qry, IDatasetReader<T> reader) {
+        SQLiteDatabase db = database.getWritableDatabase();
         Cursor dataset = db.rawQuery(qry, null);
 
         ArrayList<T> values = new ArrayList<>();
         while(dataset.moveToNext()) {
             values.add(reader.read(dataset, db));
         }
+
+        db.close();
         return values;
     }
 
-    public int getCount(SQLiteDatabase db, String tableName, List<Pair<String, String>> filter) {
+    public int getCount(String tableName, List<Pair<String, String>> filter) {
         String qry = "SELECT COUNT(*) FROM " + tableName;
         if(filter != null){
             for(int i = 0; i < filter.size(); i++){
@@ -56,11 +60,14 @@ public class DatabaseExecuter {
             }
         }
 
+        SQLiteDatabase db = database.getWritableDatabase();
         Cursor dataset = db.rawQuery(qry, null);
         int count = 0;
         if (dataset.moveToNext()){
             count = dataset.getInt(0);
         }
+
+        db.close();
         return count;
     }
 }

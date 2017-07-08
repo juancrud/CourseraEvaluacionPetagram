@@ -27,7 +27,7 @@ public class MascotaDbHelper implements IDatasetReader<Mascota>, IValueParser<Ma
 
         List<Pair<String, String>> filter = new ArrayList<>();
         filter.add(new Pair<>(Constants.FIELD_MASCOTA_LIKES_MASCOTA_ID, ""+mascota.getId()));
-        int rating = dbExecuter.getCount(db, Constants.TABLE_MASCOTA_LIKES, filter);
+        int rating = dbExecuter.getCount(Constants.TABLE_MASCOTA_LIKES, filter);
         mascota.setRating(rating);
 
         return mascota;

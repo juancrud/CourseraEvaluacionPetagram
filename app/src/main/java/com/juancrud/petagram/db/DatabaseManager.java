@@ -23,34 +23,21 @@ public class DatabaseManager {
     }
 
     public ArrayList<Mascota> getMascotas() {
-        SQLiteDatabase dbConnection = dbExecuter.getConnection();
-        ArrayList<Mascota> mascotas = dbExecuter.getAll(dbConnection, Constants.TABLE_MASCOTA, mascotaHelper);
-        dbConnection.close();
-        return mascotas;
+        return dbExecuter.getAll(Constants.TABLE_MASCOTA, mascotaHelper);
     }
 
     public ArrayList<Mascota> getUltimos5Likes() {
-        SQLiteDatabase dbConnection = dbExecuter.getConnection();
-        ArrayList<Mascota> mascotas = dbExecuter.getUltimosLikes(dbConnection, Constants.QUERY_ULTIMAS_5_MASCOTAS, mascotaHelper);
-        dbConnection.close();
-        return mascotas;
+        return dbExecuter.getUltimosLikes(Constants.QUERY_ULTIMAS_5_MASCOTAS, mascotaHelper);
     }
 
     public void insertLike(Mascota mascota) {
-        SQLiteDatabase dbConnection = dbExecuter.getConnection();
         ContentValues values = mascotaLikeHelper.parseValues(mascota.getId());
-        dbExecuter.insert(dbConnection, Constants.TABLE_MASCOTA_LIKES, values);
-        dbConnection.close();
+        dbExecuter.insert(Constants.TABLE_MASCOTA_LIKES, values);
     }
 
     public int getLikes(Mascota mascota) {
-        SQLiteDatabase dbConnection = dbExecuter.getConnection();
-
         List<Pair<String, String>> filter = new ArrayList<>();
         filter.add(new Pair<>(Constants.FIELD_MASCOTA_LIKES_MASCOTA_ID, ""+mascota.getId()));
-        int likes = dbExecuter.getCount(dbConnection, Constants.TABLE_MASCOTA_LIKES, filter);
-
-        dbConnection.close();
-        return likes;
+        return dbExecuter.getCount(Constants.TABLE_MASCOTA_LIKES, filter);
     }
 }
