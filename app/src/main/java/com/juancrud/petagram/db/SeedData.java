@@ -1,6 +1,7 @@
 package com.juancrud.petagram.db;
 
 import com.juancrud.petagram.R;
+import com.juancrud.petagram.pojo.Foto;
 import com.juancrud.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -8,6 +9,8 @@ import java.util.ArrayList;
 public class SeedData {
 
     public static ArrayList<Mascota> Mascotas;
+
+    public static ArrayList<Foto> Fotos;
 
     static {
         Mascotas = new ArrayList<>();
@@ -21,6 +24,20 @@ public class SeedData {
         Mascotas.add(new Mascota("Fishy", R.drawable.fishy));
         Mascotas.add(new Mascota("Doggy", R.drawable.doggy));
         Mascotas.add(new Mascota("Test", R.drawable.test));
+
+        Fotos = new ArrayList<>();
+        Fotos.add(new Foto(R.drawable.beto, 3));
+        Fotos.add(new Foto(R.drawable.beto, 2));
+        Fotos.add(new Foto(R.drawable.beto, 6));
+        Fotos.add(new Foto(R.drawable.beto, 4));
+        Fotos.add(new Foto(R.drawable.beto, 9));
+        Fotos.add(new Foto(R.drawable.beto, 7));
+        Fotos.add(new Foto(R.drawable.beto, 1));
+        Fotos.add(new Foto(R.drawable.beto, 7));
+        Fotos.add(new Foto(R.drawable.beto, 8));
+        Fotos.add(new Foto(R.drawable.beto, 7));
+        Fotos.add(new Foto(R.drawable.beto, 9));
+        Fotos.add(new Foto(R.drawable.beto, 5));
     }
 
 }

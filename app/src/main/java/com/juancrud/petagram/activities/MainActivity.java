@@ -6,9 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.juancrud.petagram.Datos;
 import com.juancrud.petagram.R;
-import com.juancrud.petagram.db.DatabaseExecuter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,12 +21,7 @@ public class MainActivity extends AppCompatActivity {
         tvLoading = (TextView) findViewById(R.id.tvLoading);
 
         setupTimer();
-        cargarDatos();
         timer.start();
-    }
-
-    private void cargarDatos() {
-        Datos.initDatos();
     }
 
     private void iniciar() {

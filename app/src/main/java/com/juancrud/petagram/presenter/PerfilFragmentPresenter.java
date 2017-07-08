@@ -2,8 +2,8 @@ package com.juancrud.petagram.presenter;
 
 import android.content.Context;
 
-import com.juancrud.petagram.Datos;
 import com.juancrud.petagram.adapter.FotosAdapter;
+import com.juancrud.petagram.db.SeedData;
 import com.juancrud.petagram.view.IPerfilFragmentView;
 import com.juancrud.petagram.pojo.Foto;
 
@@ -25,7 +25,7 @@ public class PerfilFragmentPresenter implements IPerfilFragmentPresenter {
 
     @Override
     public void getFotos() {
-        fotos = Datos.Fotos;
+        fotos = SeedData.Fotos;
     }
 
     @Override

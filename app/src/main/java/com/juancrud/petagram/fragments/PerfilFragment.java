@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.juancrud.petagram.Datos;
 import com.juancrud.petagram.adapter.FotosAdapter;
 import com.juancrud.petagram.R;
 import com.juancrud.petagram.pojo.Foto;
@@ -47,7 +46,7 @@ public class PerfilFragment extends Fragment implements IPerfilFragmentView {
 
     @Override
     public FotosAdapter createAdapter(ArrayList<Foto> fotos) {
-        return new FotosAdapter(Datos.Fotos);
+        return new FotosAdapter(fotos);
     }
 
     @Override
