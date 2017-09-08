@@ -72,6 +72,10 @@ public class ListaActivity extends AppCompatActivity {
                 intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.mConfigurarCuenta:
+                intent = new Intent(this, ConfigurarActivity.class);
+                startActivity(intent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

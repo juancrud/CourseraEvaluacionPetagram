@@ -33,6 +33,7 @@ public class PerfilFragment extends Fragment implements IPerfilFragmentView {
         ivFoto = (ImageView)view.findViewById(R.id.ivFoto);
         tvNombre = (TextView)view.findViewById(R.id.tvNombre);
         rvFotos = (RecyclerView)view.findViewById(R.id.rvFotos);
+
         presenter = new PerfilFragmentPresenter(this, getActivity());
 
         return view;
@@ -46,7 +47,7 @@ public class PerfilFragment extends Fragment implements IPerfilFragmentView {
 
     @Override
     public FotosAdapter createAdapter(ArrayList<Foto> fotos) {
-        return new FotosAdapter(fotos);
+        return new FotosAdapter(fotos, getActivity());
     }
 
     @Override

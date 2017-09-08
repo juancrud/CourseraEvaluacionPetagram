@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.juancrud.petagram.activities.ConfigurarActivity">
+
+    <TextView
+        android:id="@+id/tvConfigurarCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_l"
+        android:textSize="@dimen/text_xl"
+        android:text="@string/tvConfigurarCuenta"/>
+
+    <EditText
+        android:id="@+id/etConfigurarCuenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_l"
+        android:layout_marginLeft="@dimen/margin_xl"
+        android:layout_marginRight="@dimen/margin_xl"
+        android:layout_below="@id/tvConfigurarCuenta"
+        android:hint="@string/etConfigurarCuenta"/>
+
+    <Button
+        android:id="@+id/btnConfigurarCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_xxl"
+        android:layout_below="@id/etConfigurarCuenta"
+        android:hint="@string/btnConfigurarCuenta"
+        android:onClick="onClick"/>
+
+</RelativeLayout>

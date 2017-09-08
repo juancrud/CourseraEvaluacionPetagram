@@ -4,6 +4,10 @@ public class Foto {
 
     private int imagen;
     private int rating;
+    private String imagenUrl;
+
+    public Foto(){
+    }
 
     public Foto(int imagen, int rating) {
         setImagen(imagen);
@@ -24,5 +28,13 @@ public class Foto {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
     }
 }

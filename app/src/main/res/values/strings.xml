@@ -5,6 +5,7 @@
     <string name="menu_star5">Star5</string>
     <string name="menu_contact">Contacto</string>
     <string name="menu_about">Acerca de</string>
+    <string name="menu_configurar_cuenta">Configurar Cuenta</string>
 
     <string name="tvAboutProgramName">Evaluacion 3</string>
     <string name="tvAboutName">Juan Carlos Rudin</string>
@@ -16,5 +17,10 @@
     <string name="etContactMessage">Mensaje</string>
     <string name="btnContactSend">Enviar Comentario</string>
     <string name="msgContactEmailSent">Email enviado!</string>
+
+    <string name="tvConfigurarCuenta">Petagram</string>
+    <string name="etConfigurarCuenta">Escribe tu usuario</string>
+    <string name="btnConfigurarCuenta">Guardar Cuenta</string>
+    <string name="CuentaKey">CUENTA</string>
 
 </resources>
