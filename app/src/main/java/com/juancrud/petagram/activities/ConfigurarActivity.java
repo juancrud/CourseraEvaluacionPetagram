@@ -30,7 +30,7 @@ public class ConfigurarActivity extends AppCompatActivity {
         btnConfigurarCuenta = (Button)findViewById(R.id.btnConfigurarCuenta);
 
         cuentaKey = getString(R.string.CuentaKey);
-        preferences = getPreferences(MODE_PRIVATE);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         String cuentaActual = preferences.getString(cuentaKey, null);
         if(cuentaActual != null){

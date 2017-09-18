@@ -13,9 +13,11 @@ import android.widget.TextView;
 import com.juancrud.petagram.adapter.FotosAdapter;
 import com.juancrud.petagram.R;
 import com.juancrud.petagram.pojo.Foto;
+import com.juancrud.petagram.pojo.UserProfile;
 import com.juancrud.petagram.presenter.IPerfilFragmentPresenter;
 import com.juancrud.petagram.presenter.PerfilFragmentPresenter;
 import com.juancrud.petagram.view.IPerfilFragmentView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -53,5 +55,11 @@ public class PerfilFragment extends Fragment implements IPerfilFragmentView {
     @Override
     public void initAdapter(FotosAdapter adapter) {
         rvFotos.setAdapter(adapter);
+    }
+
+    @Override
+    public void setUserProfile(UserProfile userProfile) {
+        tvNombre.setText(userProfile.getFullName() + " (" + userProfile.getUserName() + ")");
+        Picasso.with(getActivity()).load(userProfile.getProfileImage()).placeholder(R.drawable.beto).into(ivFoto);
     }
 }

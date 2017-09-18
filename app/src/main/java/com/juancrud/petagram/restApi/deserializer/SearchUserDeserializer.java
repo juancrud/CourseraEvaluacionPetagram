@@ -7,10 +7,13 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.juancrud.petagram.pojo.Foto;
+import com.juancrud.petagram.pojo.UserProfile;
 import com.juancrud.petagram.restApi.JsonKeys;
 import com.juancrud.petagram.restApi.model.SearchUserResponse;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class SearchUserDeserializer implements JsonDeserializer<SearchUserResponse> {
 
@@ -20,22 +23,28 @@ public class SearchUserDeserializer implements JsonDeserializer<SearchUserRespon
         SearchUserResponse searchUserResponse = gson.fromJson(json, SearchUserResponse.class);
 
         JsonArray searchUserData = json.getAsJsonObject().getAsJsonArray(JsonKeys.RESPONSE_DATA);
+        searchUserResponse.setUserProfile(deserializeSearchUser(searchUserData));
+        return searchUserResponse;
+    }
+
+    private UserProfile deserializeSearchUser(JsonArray searchUserData) {
         if(searchUserData.size() == 0){
             return null;
         }
 
         JsonObject searchUserDataObj = searchUserData.get(0).getAsJsonObject();
-        int id = searchUserDataObj.get(JsonKeys.SEARCH_USER_DATA_ID).getAsInt();
+        long id = searchUserDataObj.get(JsonKeys.SEARCH_USER_DATA_ID).getAsLong();
         String userName = searchUserDataObj.get(JsonKeys.SEARCH_USER_DATA_USERNAME).getAsString();
         String fullName = searchUserDataObj.get(JsonKeys.SEARCH_USER_DATA_FULLNAME).getAsString();
         String profileImage = searchUserDataObj.get(JsonKeys.SEARCH_USER_DATA_PROFILE_PICTURE).getAsString();
 
-        searchUserResponse.setId(id);
-        searchUserResponse.setUserName(userName);
-        searchUserResponse.setFullName(fullName);
-        searchUserResponse.setProfileImage(profileImage);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setId(id);
+        userProfile.setUserName(userName);
+        userProfile.setFullName(fullName);
+        userProfile.setProfileImage(profileImage);
 
-        return searchUserResponse;
+        return userProfile;
     }
 
 }

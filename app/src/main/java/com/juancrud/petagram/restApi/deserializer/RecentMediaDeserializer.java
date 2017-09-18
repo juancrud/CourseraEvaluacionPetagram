@@ -22,7 +22,6 @@ public class RecentMediaDeserializer implements JsonDeserializer<RecentMediaResp
 
         JsonArray recentMediaData = json.getAsJsonObject().getAsJsonArray(JsonKeys.RESPONSE_DATA);
         recentMediaResponse.setFotos(deserializeRecentMedia(recentMediaData));
-
         return recentMediaResponse;
     }
 
